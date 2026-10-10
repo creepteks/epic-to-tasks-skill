@@ -6,7 +6,12 @@ src="$(cd "$(dirname "$0")" && pwd)"
 proj="${1:?usage: install.sh /path/to/project [--no-agent]}"
 [ -d "$proj" ] || { echo "Project folder not found: $proj" >&2; exit 1; }
 mkdir -p "$proj/.claude/skills"
-for name in epic-to-tasks implement-task epic-status; do
+# epic-to-tasks was split into epic-to-stories + story-to-tasks in 2.0.0; drop the stale copy.
+if [ -d "$proj/.claude/skills/epic-to-tasks" ]; then
+  rm -rf "$proj/.claude/skills/epic-to-tasks"
+  echo "removed stale $proj/.claude/skills/epic-to-tasks"
+fi
+for name in epic-to-stories story-to-tasks implement-task epic-status; do
   rm -rf "$proj/.claude/skills/$name"
   cp -R "$src/skills/$name" "$proj/.claude/skills/$name"
   echo "skill  -> $proj/.claude/skills/$name"

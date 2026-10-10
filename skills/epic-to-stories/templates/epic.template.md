@@ -1,7 +1,7 @@
 # Epic: <EPIC-ID> — <Epic title>
 
 > Copy this file to `docs/epics/<EPIC-ID>-<slug>.md`, fill it in, then run
-> `/epic-to-tasks docs/epics/<EPIC-ID>-<slug>.md`.
+> `/epic-to-stories docs/epics/<EPIC-ID>-<slug>.md`.
 > Sections marked (optional) may be deleted. Keep headings exactly as written — the skill parses them.
 
 ## Goal
@@ -21,7 +21,10 @@ Out of scope:
 - Architectural rules that go beyond CLAUDE.md / AGENTS.md (e.g. "must not touch Main.unity", "no new asmdef").
 - Deadlines, platform limits, performance budgets.
 
-## Stories
+## Stories (optional)
+
+> Leave this section empty to have `/epic-to-stories` generate stories from Goal and Scope. If you write
+> stories here, the skill keeps your intent and refines them (splits, acceptance criteria, dependencies).
 
 ### S1 — <Story title>
 

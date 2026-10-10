@@ -9,7 +9,13 @@ $src = $PSScriptRoot
 if (-not (Test-Path $Project)) { throw "Project folder not found: $Project" }
 $skillsDst = Join-Path $Project '.claude\skills'
 New-Item -ItemType Directory -Force -Path $skillsDst | Out-Null
-foreach ($name in 'epic-to-tasks', 'implement-task', 'epic-status') {
+# epic-to-tasks was split into epic-to-stories + story-to-tasks in 2.0.0; drop the stale copy.
+$stale = Join-Path $skillsDst 'epic-to-tasks'
+if (Test-Path $stale) {
+    Remove-Item -Recurse -Force $stale
+    Write-Host "removed stale $stale"
+}
+foreach ($name in 'epic-to-stories', 'story-to-tasks', 'implement-task', 'epic-status') {
     $dst = Join-Path $skillsDst $name
     if (Test-Path $dst) { Remove-Item -Recurse -Force $dst }
     Copy-Item -Recurse (Join-Path $src "skills\$name") $dst

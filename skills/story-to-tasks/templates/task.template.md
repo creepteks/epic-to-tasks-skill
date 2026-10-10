@@ -1,11 +1,11 @@
 ---
 id: <EPIC-ID>-T<NN>
 epic: <EPIC-ID>
-story: <S#>
+story: <EPIC-ID>-S<NN>
 title: <Imperative, ≤ 70 chars, e.g. "Wire Battle.StartBattle to MorningTimeElapsed">
 status: todo            # todo | in-progress | review | done | blocked
 size: S                 # XS (<30 min) | S (<1 h) | M (1–2 h). Never larger — split instead.
-depends_on: []          # e.g. [EPIC-T01, EPIC-T02]
+depends_on: []          # e.g. [EPIC-T01, EPIC-T02] — same story or an upstream story only
 branch: feature/<epic-slug>/t<NN>-<task-slug>
 files:
   create: []
@@ -19,7 +19,7 @@ files:
 
 2–4 sentences. Why this task exists, which story it serves, and what the surrounding system looks like
 *today* (name the real classes/files you found during recon). Assume the implementer has read
-CLAUDE.md / AGENTS.md but has **not** read the epic.
+CLAUDE.md / AGENTS.md but has **not** read the epic or the story file.
 
 ## Scope
 
@@ -41,7 +41,7 @@ Out of scope for this task (handled elsewhere or deliberately deferred):
 ## Acceptance criteria
 
 - [ ] Compiles with zero new warnings in Unity console / Rider.
-- [ ] <Behavioural criterion traced from the story's acceptance criteria>
+- [ ] <Behavioural criterion> (traces `S<NN>.AC<n>`)
 - [ ] <...>
 
 ## Verification

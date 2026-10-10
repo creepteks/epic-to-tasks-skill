@@ -1,12 +1,12 @@
 ---
 name: implement-task
-description: Implement a single task file produced by epic-to-tasks in a Claude Code session. Reads the task, verifies its assumptions against the current code, implements exactly the stated scope on the task's branch, verifies, commits, and updates the task status + tasks.json. Use when the user passes a docs/tasks/<EPIC>/T<NN>-*.md file or says "implement task T03".
+description: Implement a single task file produced by story-to-tasks in a Claude Code session. Reads the task, verifies its assumptions against the current code, implements exactly the stated scope on the task's branch, verifies, commits, and updates the task status + tasks.json. Use when the user passes a docs/tasks/<EPIC>/T<NN>-*.md file or says "implement task T03".
 argument-hint: <path/to/T<NN>-<slug>.md> [--no-branch] [--no-commit]
 ---
 
 # Implement task
 
-Input: `$ARGUMENTS` — a task file written by `epic-to-tasks`. Flags: `--no-branch` (work on the
+Input: `$ARGUMENTS` — a task file written by `story-to-tasks`. Flags: `--no-branch` (work on the
 current branch), `--no-commit` (leave changes staged but uncommitted).
 
 You are the implementer. The planning has been done; your value is precise execution and honest reporting.
